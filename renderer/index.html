@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>极速赛道</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud" class="hidden">
+    <div class="hud-left">
+      <div class="stat"><span class="label">速度</span><span id="hud-speed" class="value">0</span><span class="unit">km/h</span></div>
+      <div class="stat"><span class="label">圈数</span><span id="hud-lap" class="value">1</span><span class="unit">/3</span></div>
+      <div class="stat"><span class="label">排名</span><span id="hud-pos" class="value">1</span><span class="unit">/4</span></div>
+      <div class="stat time"><span class="label">时间</span><span id="hud-time" class="value">00:00.0</span></div>
+      <div class="stat nitro"><span class="label">氮气</span><div class="nitro-bar"><div id="nitro-fill"></div></div><span id="nitro-val" class="unit">100</span></div>
+    </div>
+    <div id="countdown" class="countdown hidden"></div>
+    <div id="wrongway" class="wrongway hidden">逆行!</div>
+    <div id="barrierhit" class="wrongway hidden">撞墙!</div>
+    <canvas id="minimap" width="220" height="220"></canvas>
+  </div>
+
+  <div id="hitflash" class="hitflash hidden"></div>
+
+  <div id="menu" class="overlay">
+    <div class="panel">
+      <div class="brand">RACING</div>
+      <h1>极速赛道</h1>
+      <p class="sub">3D 赛车 · 3 名 AI 对手 · 3 圈</p>
+      <button id="startBtn" class="primary">开始比赛</button>
+      <div class="controls">
+        <div><b>W / ↑</b> 加速</div>
+        <div><b>S / ↓</b> 刹车 / 倒车</div>
+        <div><b>A D / ← →</b> 转向</div>
+        <div><b>Shift / Space</b> 氮气加速</div>
+        <div><b>R</b> 重置赛车</div>
+        <div><b>Esc</b> 暂停</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="result" class="overlay hidden">
+    <div class="panel">
+      <h1 id="resultTitle">完成!</h1>
+      <p id="resultStats" class="sub"></p>
+      <button id="restartBtn" class="primary">再来一局</button>
+    </div>
+  </div>
+
+  <div id="pause" class="overlay hidden">
+    <div class="panel">
+      <h1>已暂停</h1>
+      <button id="resumeBtn" class="primary">继续</button>
+      <button id="quitBtn" class="ghost">回到菜单</button>
+    </div>
+  </div>
+
+  <script src="three.min.js"></script>
+  <script src="track.js"></script>
+  <script src="car.js"></script>
+  <script src="ai.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
